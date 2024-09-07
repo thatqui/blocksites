@@ -3,20 +3,28 @@
 # set variables
 HOSTS_FILE="/etc/hosts"
 
+system_language=$(echo $LANG | cut -d'_' -f1)
+
+if [[ $system_language == "tr" ]]; then
+    source langs/tr
+else
+    source langs/en
+fi
+
 # is user has permission?
 if [ "$(id -u)" -ne 0 ]; then
-    echo "Please run this script as root."
+    echo "$RUN_AS_ROOT"
     exit 1
 fi
 
 # read input from user
-read -p "Which site you want to block/unblock? " DOMAIN
+read -p "$WHICH_SITE " DOMAIN
 
 # check domain name in hosts file.
 if grep -q "$DOMAIN" $HOSTS_FILE; then
     sed -i "/$DOMAIN/d" $HOSTS_FILE
-    echo "$DOMAIN unblocked! Please restart your machine."
+    echo "$DOMAIN $BLOCKED"
 else
     echo "127.0.0.1 $DOMAIN" >> $HOSTS_FILE
-    echo "$DOMAIN blocked! Please restart your machine."
+    echo "$DOMAIN $UNBLOCKED"
 fi

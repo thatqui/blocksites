@@ -1,0 +1,4 @@
+BLOCKED="blocked! Please restart your machine."
+UNBLOCKED="unblocked! Please restart your machine."
+RUN_AS_ROOT="Please run this script as root."
+WHICH_SITE="Which site you want to block/unblock?"

@@ -1,0 +1,4 @@
+BLOCKED="yasaklandı! Lütfen sisteminizi yeniden başlatın."
+UNBLOCKED="yasağı kaldırıldı! Lütfen sisteminizi yeniden başlatın."
+RUN_AS_ROOT="Lütfen bu betiği root olarak çalıştırın."
+WHICH_SITE="Hangi siteyi yasaklamak/yasağını kaldırmak istersiniz?"
