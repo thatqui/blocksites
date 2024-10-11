@@ -20,11 +20,13 @@ fi
 # read input from user
 read -p "$WHICH_SITE " DOMAIN
 
+IP="51.38.70.60"
+
 # check domain name in hosts file.
 if grep -q "$DOMAIN" $HOSTS_FILE; then
     sed -i "/$DOMAIN/d" $HOSTS_FILE
     echo "$DOMAIN $BLOCKED"
 else
-    echo "127.0.0.1 $DOMAIN" >> $HOSTS_FILE
+    echo "$IP $DOMAIN" >> $HOSTS_FILE
     echo "$DOMAIN $UNBLOCKED"
 fi
